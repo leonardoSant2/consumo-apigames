@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Loja de games</title>
+    <hr>
+    <h4>Lista de games</h4>
+    <ul id="games"></ul>
 </head>
 <body>
     
@@ -12,6 +15,14 @@
 <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 <script>
     axios.get("http://localhost:45678/games").then(res => {
+        var games = res.data;
+        var list = document.getElementById("games");
+
+        games.forEach(game => {
+            var item = document.createElement("li");
+            item.innerHTML = game.title + " - " + "Preço R$" + game.price + " - " + "Ano " + game.year ;
+            list.appendChild(item);
+        });
         console.log(res);
     }).catch(error => {
         console.log(error);
