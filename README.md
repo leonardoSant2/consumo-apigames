@@ -8,6 +8,7 @@ Projeto criado para executar o consumo da API GAMES do repositório api-games
 * JavaScript
 * Axios
 * HTML
+* JWT
 
 ## :rocket: Rodando o projeto
 Para rodar o repositório é necessário clonar o mesmo, dar os seguintes comandos para iniciar o projeto:
