@@ -43,6 +43,16 @@
         })
     }
 
+    function deleteGame(listItem) {
+        var id = listItem.getAttribute("data-id");
+        axios.delete("http://localhost:45678/game/"+id).then(response => {
+            alert("Game deletado!");
+            window.location.reload(true);
+
+        }).catch(error => {
+            console.log(error)
+        })
+    }
 
     axios.get("http://localhost:45678/games").then(res => {
         var games = res.data;
@@ -58,6 +68,7 @@
 
             var deleteBtn = document.createElement("button");
             deleteBtn.innerHTML = "Deletar";
+            deleteBtn.addEventListener("click", function () { deleteGame(item) });
             
             item.appendChild(deleteBtn)
 
