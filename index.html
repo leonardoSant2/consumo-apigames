@@ -43,13 +43,24 @@
         })
     }
 
+
     axios.get("http://localhost:45678/games").then(res => {
         var games = res.data;
         var list = document.getElementById("games");
 
         games.forEach(game => {
             var item = document.createElement("li");
-            item.innerHTML = game.title + " - " + "Preço R$" + game.price + " - " + "Ano " + game.year ;
+            item.setAttribute("data-id", game.id);
+            item.setAttribute("data-title", game.title);
+            item.setAttribute("data-price", game.price);
+            item.setAttribute("data-year", game.year);
+            item.innerHTML = game.id + " - " + game.title + " - " + "Preço R$" + game.price + " - " + "Ano " + game.year ;
+
+            var deleteBtn = document.createElement("button");
+            deleteBtn.innerHTML = "Deletar";
+            
+            item.appendChild(deleteBtn)
+
             list.appendChild(item);
         });
         console.log(res);
