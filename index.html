@@ -6,11 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de games</title>
     <hr>
-    <h3>Login</h3>
-    <input type="text" name="email" id="email" placeholder="email@email.com">
-    <input type="text" name="passwd" id="passwd" placeholder="***********">
-    <button onclick="login()">Entrar</button>
-    <hr>
     <h4>Lista de games</h4>
     <ul id="games"></ul>
     <hr>
@@ -132,8 +127,8 @@ var axiosConfig = {
     }
 
 
-    axios.get("http://localhost:45678/games", axiosConfig).then(res => {
-        var games = res.data.games;
+    axios.get("http://localhost:45678/games").then(res => {
+        var games = res.data;
         var list = document.getElementById("games");
 
         games.forEach(game => {
